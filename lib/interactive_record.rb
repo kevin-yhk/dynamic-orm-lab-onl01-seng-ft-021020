@@ -54,7 +54,7 @@ class InteractiveRecord
   end
   
   def self.find_by(attribute)
-    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys} = #{attribute_value} LIMIT 1"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{attribute.keys.join} = #{attribute_value} LIMIT 1"
     DB[:conn].execute(sql, attribute_value)
   end
 
